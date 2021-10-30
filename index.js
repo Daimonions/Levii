@@ -7,7 +7,9 @@ const console = require("console")
 require("colors")
 
 const { Client, Collection } = require("discord.js");
-const { on } = require("events");
+const { on } = require("events")
+const mongoose = require("mongoose")
+const Utils = require("./Utils");
 
 const client = new Client({ intents: ["GUILD_MESSAGES", "GUILD_MESSAGE_REACTIONS", "DIRECT_MESSAGES", "GUILDS", "GUILD_MEMBERS", "GUILD_BANS", "GUILD_EMOJIS_AND_STICKERS", "GUILD_PRESENCES"] });
 
@@ -79,6 +81,11 @@ client.log = (text) => {
 process.on("beforeExit", (code) => {
     client.log(`Process stoped working with code ${code}`)
 })
+
+mongoose.connect(process.env.MONGO_SRV, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+}).then(console.log("Connecteds"))
 
 client.login(process.env.DISCORD_TOKEN);
 

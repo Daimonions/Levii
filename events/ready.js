@@ -1,3 +1,5 @@
+const guild = require("../Schameas/guild")
+
 module.exports = (client) => {
     client.on("ready", (client) => {
         console.log(
@@ -10,5 +12,13 @@ module.exports = (client) => {
             `\n${client.guilds.cache.size} guild(s)`.gray +
             `\n______________________________\n`.rainbow
         )
+
+        client.guilds.cache.each(async g => {
+            let s = await guild.findOne({server_id: g.id})
+            if(!s) {
+                await guild.create({server_id: g.id})
+                console.log("Created")
+            }
+        })
     })
 }

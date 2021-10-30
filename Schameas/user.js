@@ -11,4 +11,4 @@ let user = new mongoose.Schema({
     blacklisted: { type: Boolean, default: false}
 })
 
-module.exports = mongoose.model(`${__filename.split(`${__dirname}`).pop().split(".").shift()}`, user)
+module.exports = mongoose.model("User", user)
