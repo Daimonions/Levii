@@ -4,6 +4,6 @@ module.exports = {
     usage: `${process.env.PREFIX}`,
     aliases: [],
     run: async (message, args, client) => {
-        message.channel.send(`My ping is ${client.ws.ping}ms!\nSttus:${client.ws.status}`)
+        message.channel.send(`My ping is ${client.ws.ping}ms!`)
     }
 }
