@@ -3,11 +3,20 @@ const users = require("../Schameas/user")
 
 module.exports = (client) => {
     client.on("messageCreate", async (message) => {
-        //let guy = await users.findOne({_user: message.guild.id + "_" + message.author.id})
+        if(message.author.bot) return
+        if(!message.guild) return
+        let guy = await users.findOne({_user: message.guild.id + "_" + message.member.id})
         let server = await servers.findOne({server_id: message.guild.id})
-        //if(guy && (!server || server.blacklisted || guy.blacklisted || message.author.bot)) return
+        if(!guy) {
+            await users.create({_user: message.guild.id + "_" + message.member.id})
+            guy = await users.findOne({_user: message.guild.id + "_" + message.member.id})
+        }
+        if(!server) {
+            await servers.create({server_id: message.guild})
+        }
+        if(guy && server && (server.blacklisted || guy.blacklisted)) return
 
-        //if(message.content.startsWith(server.prefix || ("<@902987111710478426>" || "<@!902987111710478426>") && (!"<@!902987111710478426> " || !"<@902987111710478426> "))) return
+        if(!message.content.startsWith(server.prefix || ("<@902987111710478426>" || "<@!902987111710478426>") && (!"<@!902987111710478426> " || !"<@902987111710478426> "))) return
 
         let prefix = server.prefix
         const args = message.content.slice(prefix.length).split(/ +/)

@@ -13,7 +13,7 @@ module.exports = {
 
         if(!["517335997172809728"].includes(message.author.id)) return message.reply("You are missing permissions to do that!")
 
-        if (message.content.includes("TOKEN")) return await message.channel.send("Trying to get token, aren't you? 😏")
+        if (message.content.includes("TOKEN")) return await message.channel.send("Trying to get token, aren't you? \😏")
         try {
             if (!args[0]) return message.channel.send("undefined", { code: "js" })
 
