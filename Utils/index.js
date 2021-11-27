@@ -14,4 +14,21 @@ module.exports = {
 }`)
         return x
     },
+    newSlash: () => {
+        let x = new String(
+`
+module.exports = {
+    command: {
+        name: "",
+        description: "",
+        type: "",
+        options: [],
+    },
+    run: (client, interaction) => {
+        // code
+    }
+}
+`)
+        return x
+    }
 }
