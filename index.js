@@ -85,7 +85,7 @@ process.on("beforeExit", (code) => {
 mongoose.connect(process.env.MONGO_SRV, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-}).then(console.log("Connecteds"))
+}).then(console.log("Connected to the databank"))
 
 client.login(process.env.DISCORD_TOKEN);
 

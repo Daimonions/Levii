@@ -1,4 +1,5 @@
 const servers = require("../../Schameas/guild")
+const fetch = require("node-fetch")
 
 module.exports = {
     name: "prefix",
@@ -12,7 +13,11 @@ module.exports = {
             let updated = await servers.findOne({server_id: message.guild.id})
             message.channel.send(`__**Prefix updated:**__\n**Before:** ${x.prefix}\n**Now:** ${updated.prefix}`)
         } else {
-            message.channel.send(`The prefix for this server is \`${x.prefix}\``)
+            let msg = message.channel.send(`The prefix for this server is \`${x.prefix}\``).then((msg) => {
+                if(msg.channel.type === "GUILD_NEWS") {
+                    msg.crosspost()
+                }
+            })
         }
     }
 }

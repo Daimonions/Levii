@@ -8,7 +8,8 @@ let user = new mongoose.Schema({
         day: { type: Number, default: 0},
         last: { type: Number, default: 0},
     },
-    blacklisted: { type: Boolean, default: false}
+    blacklisted: { type: Boolean, default: false},
+    todo: { type: Array, default: []}
 })
 
 module.exports = mongoose.model("User", user)
