@@ -1,4 +1,4 @@
-const guild = require("../Schameas/guild")
+const guild = require("../Schemas/guild")
 const { classes } = require("../Utils/")
 
 module.exports = (client) => {
@@ -14,5 +14,6 @@ module.exports = (client) => {
         }
         if(server.blocked.includes(interaction.commandName)) return interaction.reply({content:"This command is blocked in this server!"})
 
+        client.slashCommands.get(interaction.commandName).run(client, interaction)
     })
 }

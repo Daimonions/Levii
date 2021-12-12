@@ -1,5 +1,6 @@
 //console.log("Starting Bot...");
 require("dotenv").config();
+require("./mysql")
 
 const fs = require("fs");
 const db = require("quick.db");
@@ -86,6 +87,11 @@ mongoose.connect(process.env.MONGO_SRV, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 }).then(console.log("Connected to the databank"))
+
+process.on("disconnect", (code) => {
+    console.log("Disconnected")
+    process.exit(code)
+})
 
 client.login(process.env.DISCORD_TOKEN);
 

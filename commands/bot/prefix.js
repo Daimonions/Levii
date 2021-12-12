@@ -1,4 +1,4 @@
-const servers = require("../../Schameas/guild")
+const servers = require("../../Schemas/guild")
 const fetch = require("node-fetch")
 
 module.exports = {

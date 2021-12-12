@@ -1,5 +1,5 @@
-const servers = require("../Schameas/guild")
-const users = require("../Schameas/user")
+const servers = require("../Schemas/guild")
+const users = require("../Schemas/user")
 
 module.exports = (client) => {
     client.on("messageCreate", async (message) => {

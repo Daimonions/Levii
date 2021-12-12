@@ -1,11 +1,11 @@
-let user =  require("../Schameas/user")
+const user = require("../Schemas/user")
 
-module.exports.Todo = class Todo {
-    index = new String;
-    name = new String;
-    description = new String;
+class Todo {
+    index: number;
+    name: string;
+    description: string;
 
-    constructor(Index: string, title: string, Description?: string) {
+    constructor(Index: string, title: string, Description?: string){
         this.index = Index;
         this.name = title;
         this.description = Description || "No description provided!";
@@ -27,4 +27,4 @@ module.exports.Todo = class Todo {
         await guy.updateOne({$set:{"todo": guy.todo}})
     }
 }
-
+export default { Todo }

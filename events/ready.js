@@ -1,4 +1,4 @@
-const guild = require("../Schameas/guild")
+const guild = require("../Schemas/guild")
 
 module.exports = (client) => {
     client.on("ready", (client) => {
