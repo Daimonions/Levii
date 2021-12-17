@@ -1,7 +1,7 @@
 const user = require("../Schemas/user")
 
 class Todo {
-    index: number;
+    index: string;
     name: string;
     description: string;
 
@@ -27,4 +27,4 @@ class Todo {
         await guy.updateOne({$set:{"todo": guy.todo}})
     }
 }
-export default { Todo }
+export { Todo }

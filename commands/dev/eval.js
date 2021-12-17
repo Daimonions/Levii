@@ -4,6 +4,7 @@ const qdb = require("quick.db")
 const shuffle = require("shuffle-array")
 const utils = require("../../Utils")
 const fs = require("fs")
+const { Todo } = require("../../Utils/classes")
 
 module.exports = {
     name: "eval",
