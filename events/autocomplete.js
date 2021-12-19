@@ -1,5 +1,7 @@
+const { userSchema } = require("../Schemas/user")
+
 module.exports = (client) => {
-    client.on("interactionCreate", (interaction) => {
+    client.on("interactionCreate", async (interaction) => {
         if(!interaction.isAutocomplete()) return;
         switch(interaction.commandName) {
             case "embed": {
@@ -75,6 +77,24 @@ module.exports = (client) => {
                         }
                     }
                 }
+            }
+            case "todo": {
+                let currently = interaction.options.getString("id")
+                let res = []
+                let finalRes = []
+                let guy = await userSchema.findOne({_user: interaction.guild.id + "_" + interaction.user.id})
+                guy.todo.forEach((todo) => {
+                    res.push({name: todo.index, value: todo.index})
+                })
+
+                if(currently == "" || currently == " ") {
+                    finalRes = res;
+                } else {
+                    res.forEach((result) => {
+                        if(result.name.toLowerCase().startsWith(currently.toLowerCase())) finalRes.push(result)
+                    })
+                }
+                interaction.respond(finalRes)
             }
         }
     })

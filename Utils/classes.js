@@ -35,24 +35,22 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-var user = require("../Schemas/user");
-module.exports.Todo = /** @class */ (function () {
+exports.__esModule = true;
+exports.Todo = void 0;
+var { userSchema } = require("../Schemas/user");
+var Todo = /** @class */ (function () {
     function Todo(Index, title, Description) {
-        this.index = new String;
-        this.name = new String;
-        this.description = new String;
         this.index = Index;
         this.name = title;
         this.description = Description || "No description provided!";
-        console.log(this)
     }
-    Todo.prototype.delete = function (target) {
+    Todo.prototype["delete"] = function (target) {
         return __awaiter(this, void 0, void 0, function () {
             var guy, entry;
             var _this = this;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, user.findOne({ _user: target })];
+                    case 0: return [4 /*yield*/, userSchema.findOne({ _user: target })];
                     case 1:
                         guy = _a.sent();
                         entry = guy.todo.findIndex(function (element) { return element.index == _this.index; });
@@ -76,7 +74,7 @@ module.exports.Todo = /** @class */ (function () {
                             this.name = data.title;
                         if (data.desc)
                             this.description = data.desc;
-                        return [4 /*yield*/, user.findOne({ _user: target })];
+                        return [4 /*yield*/, userSchema.findOne({ _user: target })];
                     case 1:
                         guy = _a.sent();
                         entry = guy.todo.findIndex(function (element) { return element.index == _this.index; });
@@ -91,3 +89,4 @@ module.exports.Todo = /** @class */ (function () {
     };
     return Todo;
 }());
+exports.Todo = Todo;

@@ -6,8 +6,7 @@ module.exports = {
         options: [],
     },
     run: async (client, interaction) => {
-        interaction.deferReply()
         require("../../../webhooks/index")
-        await interaction.reply({content: "\✅ All embeds have been updated!"})
+        interaction.reply({content: "\✅ All embeds have been updated!"})
     }
 }

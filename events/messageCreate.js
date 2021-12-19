@@ -1,15 +1,15 @@
 const servers = require("../Schemas/guild")
-const users = require("../Schemas/user")
+const { userSchema } = require("../Schemas/user")
 
 module.exports = (client) => {
     client.on("messageCreate", async (message) => {
         if(message.author.bot) return
         if(!message.guild) return
-        let guy = await users.findOne({_user: message.guild.id + "_" + message.member.id})
+        let guy = await userSchema.findOne({_user: message.guild.id + "_" + message.member.id})
         let server = await servers.findOne({server_id: message.guild.id})
         if(!guy) {
-            await users.create({_user: message.guild.id + "_" + message.member.id})
-            guy = await users.findOne({_user: message.guild.id + "_" + message.member.id})
+            await userSchema.create({_user: message.guild.id + "_" + message.member.id})
+            guy = await userSchema.findOne({_user: message.guild.id + "_" + message.member.id})
         }
         if(!server) {
             await servers.create({server_id: message.guild})

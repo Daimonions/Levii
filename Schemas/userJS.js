@@ -1,6 +1,6 @@
-import { Schema, model } from "mongoose"
+const mongoose = require("mongoose")
 
-let user = new Schema({
+let user = new mongoose.Schema({
     _user: { type: String, unique: true, required: true },
     coins: { type: Number, default: 0},
     customRole: { type: String, default: ""},
@@ -9,8 +9,7 @@ let user = new Schema({
         last: { type: Number, default: 0},
     },
     blacklisted: { type: Boolean, default: false},
-    todo: { type: Array, default: []},
-    todoIndex: {type: Number, default: 0}
+    todo: { type: Array, default: []}
 })
-let userSchema = model("User", user)
-export = { userSchema }
+
+module.exports = mongoose.model("User", user)

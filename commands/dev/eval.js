@@ -5,6 +5,8 @@ const shuffle = require("shuffle-array")
 const utils = require("../../Utils")
 const fs = require("fs")
 const { Todo } = require("../../Utils/classes")
+const { userSchema } = require("../../Schemas/user")
+const user = userSchema
 
 module.exports = {
     name: "eval",
