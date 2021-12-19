@@ -7,7 +7,7 @@ const db = require("quick.db");
 const console = require("console")
 require("colors")
 
-const { Client, Collection } = require("discord.js");
+const { Client, Collection, Permissions, PermissionOverwrites } = require("discord.js");
 const { on } = require("events")
 const mongoose = require("mongoose")
 const Utils = require("./Utils");
@@ -94,4 +94,5 @@ process.on("disconnect", (code) => {
 })
 
 client.login(process.env.DISCORD_TOKEN);
+
 
