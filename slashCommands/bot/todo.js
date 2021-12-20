@@ -80,7 +80,7 @@ module.exports = {
     run: async (client, interaction) => {
         interaction.reply("Not coded yet");
         let guys = []
-        let guysQuery = await userSchema.find({_user: /variable/i})
+        let guysQuery = await userSchema.find({_user: new RegExp(`_${interaction.user.id}`)})
         guysQuery.exec((err, users) => {
             if(err) return interaction.reply({content: "An error occurred. Please try again later or contact the suppport."})
             users.forEach((user) => {
@@ -102,7 +102,7 @@ module.exports = {
                 break;
             }
             case "edit": {
-
+                
             }
             case "delete": {
 
