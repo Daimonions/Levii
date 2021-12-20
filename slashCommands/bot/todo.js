@@ -80,7 +80,7 @@ module.exports = {
     run: async (client, interaction) => {
         interaction.reply("Not coded yet");
         let guys = []
-        let guysQuery = await userSchema.find({_user: /${interaction.user.id}/i})
+        let guysQuery = await userSchema.find({_user: /variable/i})
         guysQuery.exec((err, users) => {
             if(err) return interaction.reply({content: "An error occurred. Please try again later or contact the suppport."})
             users.forEach((user) => {

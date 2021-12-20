@@ -77,6 +77,7 @@ module.exports = (client) => {
                         }
                     }
                 }
+                break
             }
             case "todo": {
                 let currently = interaction.options.getString("id")
@@ -95,6 +96,7 @@ module.exports = (client) => {
                     })
                 }
                 interaction.respond(finalRes)
+                break
             }
         }
     })
