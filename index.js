@@ -1,7 +1,6 @@
 console.log("NodeJS Version: " + process.version);
 console.log("Starting Bot...");
 require("dotenv").config();
-require("./mysql")
 
 const fs = require("fs");
 const db = require("quick.db");
