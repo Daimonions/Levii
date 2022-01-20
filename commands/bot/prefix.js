@@ -1,5 +1,4 @@
 const servers = require("../../Schemas/guild")
-const fetch = require("node-fetch")
 
 module.exports = {
     name: "prefix",
