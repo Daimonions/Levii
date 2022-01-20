@@ -1,4 +1,5 @@
-//console.log("Starting Bot...");
+console.log("NodeJS Version: " + process.version);
+console.log("Starting Bot...");
 require("dotenv").config();
 
 const fs = require("fs");
