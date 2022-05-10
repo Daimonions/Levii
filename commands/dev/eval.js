@@ -8,7 +8,13 @@ const fs = require("fs")
 module.exports = {
     name: "eval",
     description: "Run some code lines.",
-    usage: `${process.env.PREFIX}eval <code...>`,
+    arguments: `<code...>`,
+    guildOnly: false,
+    /**
+     * @param {Message} message 
+     * @param {String[]} args 
+     * @param {Client} client 
+     */
     run: async (message, args, client) => {
 
         if(!["517335997172809728"].includes(message.author.id)) return message.reply("You are missing permissions to do that!")

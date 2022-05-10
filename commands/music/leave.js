@@ -1,15 +1,17 @@
+const { getVoiceConnection } = require('@discordjs/voice');
+
 module.exports = {
-    name: "ping",
+    name: "leave",
     description: "",
     arguments: ``,
-    aliases: [],
-    guildOnly: false,
+    aliases: ["l"],
+    guildOnly: true,
     /**
      * @param {Message} message 
      * @param {String[]} args 
      * @param {Client} client 
      */
     run: async (message, args, client) => {
-        message.channel.send(`My ping is ${client.ws.ping}ms!`)
+        getVoiceConnection(message.guild.id).destroy()
     }
 }

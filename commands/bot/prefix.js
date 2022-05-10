@@ -1,11 +1,16 @@
 const servers = require("../../Schemas/guild")
-const fetch = require("node-fetch")
 
 module.exports = {
     name: "prefix",
     description: "Change the prefix for this server!",
-    usage: `${process.env.PREFIX}prefix [newPrefix]`,
+    arguments: `[newPrefix]`,
     aliases: [],
+    guildOnly: true,
+    /**
+     * @param {Message} message 
+     * @param {String[]} args 
+     * @param {Client} client 
+     */
     run: async (message, args, client) => {
         let x = await servers.findOne({server_id: message.guild.id})
         if(message.member && message.member.permissions.has("MANAGE_GUILD") && args[0]) {

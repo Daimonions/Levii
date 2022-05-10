@@ -1,3 +1,7 @@
+# Ignore
+*.bat
+*.ico
+
 # Logs
 logs
 *.log

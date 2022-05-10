@@ -10,7 +10,7 @@ const { on } = require("events")
 const mongoose = require("mongoose")
 const Utils = require("./Utils");
 
-const client = new Client({ intents: ["GUILD_MESSAGES", "GUILD_MESSAGE_REACTIONS", "DIRECT_MESSAGES", "GUILDS", "GUILD_MEMBERS", "GUILD_BANS", "GUILD_EMOJIS_AND_STICKERS", "GUILD_PRESENCES"] });
+const client = new Client({ intents: ["GUILD_MESSAGES", "GUILD_MESSAGE_REACTIONS", "DIRECT_MESSAGES", "GUILDS", "GUILD_MEMBERS", "GUILD_BANS", "GUILD_EMOJIS_AND_STICKERS", "GUILD_PRESENCES", "GUILD_VOICE_STATES"] });
 
 if(db.get("maintance")) {
     console.log("The bot is currently in emergency mode.");

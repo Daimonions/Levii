@@ -3,11 +3,20 @@ module.exports =  {
     functions: require("./functions"),
     newCommand: () => {
         let x = new String(`
+const {Client, Message} = require("discord.js")
+
+        
 module.exports = {
     name: "",
     description: "",
     usage: \`\${process.env.PREFIX}\`,
     aliases: [],
+    guildOnly: false,
+    /**
+     * @param {Message} message 
+     * @param {String[]} args 
+     * @param {Client} client 
+     */
     run: async (message, args, client) => {
         // code
     }

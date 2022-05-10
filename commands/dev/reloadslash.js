@@ -1,7 +1,7 @@
 module.exports = {
     name: "reloadslash",
     description: "Loads slash commands, add them if they don't exist yet and overrides the permissions.",
-    usage: `${process.env.PREFIX}reloadslash`,
+    arguments: ``,
     run: (message, args, client) => {
         try {
             let done = 0
