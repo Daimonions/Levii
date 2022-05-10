@@ -70,3 +70,9 @@ module.exports.getWebSocketStatus = (statusResolvable) => {
     }
     return found
 }
+
+module.exports.getMember = (guild, memberResolveable) => {
+    memberResolveable = memberResolveable.toLowerCase()
+    if(memberResolveable == "" ) return guild.me
+    return guild.members.resolve(memberResolveable) || guild.members.cache.find(m => m.user.tag.toLowerCase() == memberResolveable) || guild.members.cache.find(m => m.user.username.toLowerCase() == memberResolveable) || guild.members.cache.find(m => m?.nickname?.toLowerCase() == memberResolveable) || guild.members.cache.find(m => m.user.username.toLowerCase().startsWith(memberResolveable)) || guild.members.cache.find(m => m?.nickname?.toLowerCase()?.startsWith(memberResolveable))
+}

@@ -1,10 +1,11 @@
-const {Client, Message} = require("discord.js")
+const { Client, Message } = require("discord.js")
+const { getMember } = require("../../Utils/functions")
 
 module.exports = {
-    name: "massping",
+    name: "spam",
     description: "Massping an innocent user so they wake up.",
-    arguments: `<nickname>`,
-    aliases: ["sjjsjs", "wake"],
+    arguments: `<member>`,
+    aliases: ["massping", "wake"],
     guildOnly: true,
     /**
      * @param {Message} message 
@@ -12,10 +13,11 @@ module.exports = {
      * @param {Client} client 
      */
     run: async (message, args, client) => {
-        try{
-        for (let i = 0; i < 10; i++) {
-            let a = message.guild.members.cache.find((m) => m?.nickname?.toLowerCase() === args[0].toLowerCase())
-            message.channel.send(`<@${a.id}> wakey wakey`)
-        }}catch(err){console.log(err)}
+        let user = getMember(message.guild, args.join(" "))
+        try {
+            for (let i = 0; i < 10; i++) {
+                message.channel.send(`<@${user.id}> wakey wakey`)
+            }
+        } catch (err) { console.log(err) }
     },
 }
