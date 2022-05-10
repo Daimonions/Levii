@@ -27,6 +27,14 @@ module.exports.capitalizeFirstLetter = (string) => {
     return string.charAt(0).toUpperCase() + string.slice(1)
 }
 
+module.exports.capitalizeBeginning = (string) => {
+    let arr = string.split(" ")
+    arr.forEach((part, index, array) => {
+        array[index] = this.capitalizeFirstLetter(part)
+    })
+    return arr.join(" ")
+}
+
 module.exports.disableButtons = (message, disable = true) => {
     message.components.forEach(comp => {
         let btns = comp.components
@@ -40,4 +48,25 @@ module.exports.disableButtons = (message, disable = true) => {
     if (message.embeds) sendData.embeds = message.embeds
     if (message.components) sendData.components = message.components
     return sendData
+}
+
+module.exports.getWebSocketStatus = (statusResolvable) => {
+    let found = {name: "INVALID", raw: -1}
+    let status = {
+        "READY": 0,
+        "CONNECTING": 1,
+        "RECONNECTING": 2,
+        "IDLE": 3,
+        "NEARLY": 4,
+        "DISCONNECTED": 5,
+        "WAITING_FOR_GUILDS": 6,
+        "IDENTIFYING": 7,
+        "RESUMING": 8,
+    }
+    for (const [key, value] of Object.entries(status)) {
+        if(statusResolvable == key || statusResolvable == value) {
+            found = {name: key, raw: value}
+        }
+    }
+    return found
 }
