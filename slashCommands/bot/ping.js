@@ -1,3 +1,5 @@
+const { Client, CommandInteraction } = require("discord.js")
+
 module.exports = {
     command: {
         name: "ping",
@@ -5,7 +7,11 @@ module.exports = {
         type: 1,
         options: [],
     },
+    /**
+     * @param {Client} client 
+     * @param {CommandInteraction} interaction 
+     */
     run: (client, interaction) => {
-        interaction.reply({content:`My ping is ${client.ws.ping}ms!`})
+        interaction.editReply({ content: `My ping is ${client.ws.ping}ms!` })
     }
 }

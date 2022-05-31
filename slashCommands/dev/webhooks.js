@@ -1,3 +1,5 @@
+const { Client, CommandInteraction } = require("discord.js")
+
 module.exports = {
     command: {
         name: "webhooks",
@@ -5,6 +7,10 @@ module.exports = {
         type: "CHAT_INPUT",
         options: [],
     },
+    /**
+     * @param {Client} client 
+     * @param {CommandInteraction} interaction 
+     */
     run: async (client, interaction) => {
         interaction.deferReply()
         require("../../../webhooks/index")

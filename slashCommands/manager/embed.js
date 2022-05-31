@@ -1,4 +1,4 @@
-const { MessageEmbed } = require("discord.js");
+const { MessageEmbed, Client, CommandInteraction } = require("discord.js");
 const { validateURL } = require("../../Utils/functions");
 let cmd = {
     name: "embed",
@@ -149,6 +149,10 @@ let cmd = {
 
 module.exports = {
     command: cmd,
+    /**
+     * @param {Client} client 
+     * @param {CommandInteraction} interaction 
+     */
     run: (client, interaction) => {
         let opGet = (key) => {
             if(key === "channel") return

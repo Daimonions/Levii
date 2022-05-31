@@ -5,7 +5,7 @@ const { capitalizeFirstLetter } = require("../../Utils/functions")
 module.exports = {
     name: "help",
     description: "Get help for this bot.",
-    arguments: ``,
+    arguments: `[category | command]`,
     aliases: ["h"],
     guildOnly: false,
     /**
@@ -99,24 +99,3 @@ module.exports = {
         }
     }
 }
-
-/*
-[
-    {
-        name: "manager",
-        commands: [
-            {
-                name: "...",
-                desc: "..."
-            }
-        ]
-    }, {
-        name: "bot",
-        commands: [
-            {
-                ...
-            }
-        ]
-    }
-]
-*/

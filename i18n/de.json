@@ -1,0 +1,4 @@
+{
+    "welcome": "Hallo {user}! Wie geht's dir?",
+    "errorMsgNotFound": "[FEHLER] Nachricht nicht gefunden. Bitte versuche es mit einer anderen Eingabe erneut."
+}

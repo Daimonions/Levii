@@ -1,6 +1,7 @@
 # Ignore
 *.bat
 *.ico
+*.vscode
 
 # Logs
 logs
