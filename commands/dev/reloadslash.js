@@ -4,11 +4,11 @@ module.exports = {
     arguments: ``,
     run: (message, args, client) => {
         try {
+            require("./deleteslash").run(message, args, client)
             let done = 0
-            client.slashCommands.each((cmd) => {
-                client.application.commands.create(cmd.command, message.guild.id).then((command) => {
-                    done += 1
-                })
+            client.slashCommands.each(async (cmd) => {
+                await client.application.commands.create(cmd.command, message.guild.id)
+                done += 1
             })
             message.channel.send({ content: `${done} slash commands created/updated.` })
         } catch (err) {

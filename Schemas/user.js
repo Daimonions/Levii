@@ -9,7 +9,6 @@ let user = new mongoose.Schema({
         last: { type: Number, default: 0},
     },
     blacklisted: { type: Boolean, default: false},
-    todo: { type: Array, default: []}
 })
 
 module.exports = mongoose.model("User", user)

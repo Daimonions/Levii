@@ -1,7 +1,7 @@
 const guild = require("../Schemas/guild");
 
 module.exports = (client) => {
-	client.on("ready", (client) => {
+	client.once("ready", (client) => {
 		console.log(
 			`\n##############################`.rainbow +
 				`\n${client.user.tag} logged in!`.red.underline +

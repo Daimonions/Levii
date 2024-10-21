@@ -12,8 +12,6 @@ module.exports = {
      * @param {Client} client 
      */
     run: async (message, args, client) => {
-        let x = new Todo(1, "Hey", "descccc")
-        message.channel.send(x.toString() || x )
-        console.log(x)
+        return message.channel.send("No test activ currently.")
     }
 }

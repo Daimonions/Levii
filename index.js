@@ -25,9 +25,11 @@ const client = new Client({
 });
 
 const db = new QuickDB();
-if ( db.get("maintenance") ?? false) {
-	console.log("The bot is currently in emergency mode.");
-}
+db.get("maintenance").then((maint) => {
+	if (maint ?? false) {
+		console.log("The bot is currently in emergency mode.");
+	}
+});
 
 client.db = db;
 

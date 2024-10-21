@@ -10,6 +10,7 @@ module.exports = {
      * @param {Client} client 
      */
     run: async (message, args, client) => {
+        //TODO: Disable commands in the server
         if(!message.member.permissions.has("MANAGE_SERVER")) return message.channel.send("No")
     }
 }
