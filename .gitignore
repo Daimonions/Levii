@@ -112,3 +112,6 @@ dist
 .replit
 .breakpoints
 replit.nix
+
+# VSCode files
+.vscode/

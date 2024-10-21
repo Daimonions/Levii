@@ -25,7 +25,7 @@ module.exports = {
                 let e = {
                     title: capitalizeFirstLetter(cat.name),
                     description,
-                    color: message.guild.me.displayColor,
+                    color: message.guild.members.me.displayColor,
                     thumbnail: { url: client.user.displayAvatarURL() }
                 }
                 return [e]
@@ -80,7 +80,7 @@ module.exports = {
                 let defaultEmbed = {
                     title: "Help - Categories",
                     description: "All categories are listed below. Select the right category in the dropdown menu to list all commands.\n\n" + categories.map(c => `\`${c.name}\``).join("\n"),
-                    color: message.guild.me.displayColor,
+                    color: message.guild.members.me.displayColor,
                     thumbnail: { url: client.user.displayAvatarURL() }
                 }
                 let m = await message.channel.send({ embeds: [defaultEmbed], components: addComponents() })
